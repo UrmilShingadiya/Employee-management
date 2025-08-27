@@ -1,0 +1,20 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body { font-family: Arial, sans-serif; }
+        .heading { font-size: 20px; font-weight: bold; }
+        .body-text { margin: 10px 0; }
+        .signature { margin-top: 30px; }
+    </style>
+</head>
+<body>
+    <h2 class="heading">Offer Letter</h2>
+    <p class="body-text">Dear {{ full_name }},</p>
+    <p class="body-text">We are pleased to offer you the position of <strong>{{ position }}</strong>.</p>
+    <p class="body-text">Your start date will be: <strong>{{ start_date }}</strong>.</p>
+    <p class="body-text">We look forward to working with you.</p>
+    <p class="signature">Sincerely,<br><strong>HR Department</strong></p>
+</body>
+</html>

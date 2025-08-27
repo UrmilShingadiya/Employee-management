@@ -1,0 +1,32 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Joining Letter</title>
+    <link rel="stylesheet" href="{% static 'css/joining-letter.css' %}">
+</head>
+<body>
+    <div class="letter-container">
+        <h2 class="heading">Joining Letter</h2>
+
+        <p class="greeting">Dear {{ full_name }},</p>
+
+        <p class="body-text">
+            We are delighted to welcome you to the team as a <strong>{{ position }}</strong>.
+        </p>
+
+        <p class="body-text">
+            Please report on your joining date: <strong>{{ start_date }}</strong>.
+        </p>
+
+        <p class="body-text">
+            We look forward to your valuable contributions.
+        </p>
+
+        <p class="signature">
+            Sincerely,<br>
+            <span class="department">HR Department</span>
+        </p>
+    </div>
+</body>
+</html>
