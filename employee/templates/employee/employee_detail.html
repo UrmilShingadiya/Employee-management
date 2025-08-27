@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% block title %}{{ employee.full_name }} Details{% endblock %}
+
+{% block content %}
+<div class="container mt-4">
+    <div class="card shadow">
+        <div class="card-header bg-info text-white">
+            <h4>Employee Details</h4>
+        </div>
+        <div class="card-body">
+            <div class="row">
+                {% if employee.photo %}
+                <div class="col-md-3 text-center">
+                    <img src="{{ employee.photo.url }}" alt="Photo" class="img-thumbnail" width="150" height="150">
+                </div>
+                {% endif %}
+                <div class="col-md-9">
+                    <p><strong>Full Name:</strong> {{ employee.full_name }}</p>
+                    <p><strong>Email:</strong> {{ employee.email }}</p>
+                    <p><strong>Phone:</strong> {{ employee.phone }}</p>
+                    <p><strong>Address:</strong> {{ employee.address }}</p>
+                    <p><strong>Position:</strong> {{ employee.position }}</p>
+                    <p><strong>Department:</strong> {{ employee.department }}</p>
+                    <p><strong>Date of Joining:</strong> {{ employee.date_of_joining }}</p>
+                    <p><strong>Salary:</strong> ₹{{ employee.salary }}</p>
+                    <p><strong>Gender:</strong> {{ employee.get_gender_display }}</p>
+                    <p><strong>Contract start date {{ employee.start_date }}</p>
+                    <p><strong>Contract end date  {{ employee.end_date }}</p>
+                </div>
+            </div>
+            <a href="{% url 'all_employees' %}" class="btn btn-secondary mt-3">Back to All Employees</a>
+        </div>
+    </div>
+</div>
+{% endblock %}

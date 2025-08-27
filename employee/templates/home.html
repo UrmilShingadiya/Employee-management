@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% block title %}Home{% endblock %}
+{% block content %}
+
+    <h1 style="color: yellow; text-align: center;">Welcome to Employee Management System</h1>
+
+
+{% load static %}
+<p style="color: white; text-align: center;">By SEMENSE ENERGY AT BANGLORE</p>
+{% comment %} <div style="display: flex; flex-wrap: wrap; gap: 20px; justify-content: center;">
+    {% for employee in employees %}
+    <div style="border: 1px solid #ccc; padding: 15px; width: 250px; box-shadow: 2px 2px 8px rgba(0,0,0,0.1); background-color: white;">
+        
+        {% if employee.photo %}
+            <img src="{{ employee.photo.url }}" alt="{{ employee.full_name }}" style="max-width: 100%; height: auto;">
+        {% else %}
+            <img src="{% static 'default-profile.png' %}" alt="No Photo" style="max-width: 100%; height: auto;">
+        {% endif %}
+
+        <h2 style="font-size: 20px;">{{ employee.full_name }}</h2>
+        <p><strong>Position:</strong> {{ employee.position }}</p>
+        <p><strong>Department:</strong> {{ employee.department }}</p>
+        <p><strong>Email:</strong> {{ employee.email }}</p>
+        <p><strong>Phone:</strong> {{ employee.phone }}</p>
+        <p><strong>Salary:</strong> ₹{{ employee.salary }}</p>
+    </div>
+    {% endfor %}
+</div> {% endcomment %}
+
+
+    
+
+{% endblock %}

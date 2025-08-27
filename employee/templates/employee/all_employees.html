@@ -1,0 +1,66 @@
+{% extends 'base.html' %}
+{% block title %}All Employees{% endblock %}
+{% block content %}
+<div class="container">
+    <h2 class="mb-4">All Employees</h2>
+    <table class="table table-bordered table-hover">
+        <thead class="table-dark">
+            <tr>
+                <th>Sr. No.</th>
+                <th>Photo</th>
+                <th>Name</th>
+                <th>Position</th>
+                <th>Department</th>
+                <th>Date of Joining</th>
+                <th>Email</th>
+                <th>Status</th>
+                <th>Action</th>
+
+            </tr>
+        </thead>
+        <tbody>
+            {% for emp in employees %}
+            <tr>
+                <td>{{ forloop.counter }}</td>
+                <td>
+                    {% if emp.photo %}
+                        <img src="{{ emp.photo.url }}" width="50" height="50" class="rounded-circle" />
+                    {% else %}
+                        N/A
+                    {% endif %}
+                </td>
+                <td>
+                    <a href="{% url 'employee_detail' emp.id %}">
+                        {{ emp.full_name }}
+                    </a>
+                </td>
+                <td>{{ emp.position }}</td>
+                <td>{{ emp.department }}</td>
+                <td>{{ emp.date_of_joining }}</td>
+                <td>{{ emp.email }}</td>
+                <td>
+                        {% if emp.is_active %}
+                            <span class="badge bg-success">Active</span>
+                        {% else %}
+                            <span class="badge bg-danger">Inactive</span>
+                        {% endif %}
+                    </td>
+                    <td>
+                        <form method="post" action="{% url 'toggle_employee_status' emp.id %}">
+                            {% csrf_token %}
+                            {% if emp.is_active %}
+                            <button type="submit" class="btn btn-sm btn-danger">Deactivate</button>
+                            {% else %}
+                            <button type="submit" class="btn btn-sm btn-success">Activate</button>
+                            {% endif %}
+                        </form>
+                    </td>
+
+            </tr>
+            {% empty %}
+            <tr><td colspan="6" class="text-center">No employees found.</td></tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}
