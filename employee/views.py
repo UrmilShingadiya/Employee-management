@@ -29,7 +29,7 @@ def contact_view(request):
             messages.success(request, "Thank you for contacting us. We'll get back to you soon.")
             return redirect('contact')  # Assuming 'contact' is the name in urls.py
     return render(request, 'contact_us.html', {'form': form})
-
+@login_required
 def add_employee(request):
     if request.method == 'POST':
         form = EmployeeForm(request.POST, request.FILES)
@@ -39,7 +39,7 @@ def add_employee(request):
     else:
         form = EmployeeForm()
     return render(request, 'employee/add_employee.html', {'form': form})
-
+@login_required
 def all_employees(request):
     employees = Employee.objects.all()
     return render(request, 'employee/all_employees.html', {'employees': employees})
@@ -147,7 +147,7 @@ def register(request):
         form = CustomUserCreationForm()
     return render(request, 'register.html', {'form': form})
 
-
+@login_required
 def generate_offer_letter(request):
     if request.method == 'POST':
         form = LetterForm(request.POST)
@@ -174,7 +174,7 @@ def generate_offer_letter(request):
         form = LetterForm()
         return render(request, 'letters/letter_form.html', {'form': form, 'title': 'Generate Offer Letter'})
 
-
+@login_required
 def generate_joining_letter(request):
     if request.method == 'POST':
         form = LetterForm(request.POST)

@@ -1,0 +1,82 @@
+/* Letter Form Wrapper */
+.letter-form-wrapper {
+  max-width: 500px;
+  margin: 40px auto;
+  padding: 25px 30px;
+  background-color: #f4f6f9;
+  border-radius: 10px;
+  border: 1px solid #ddd;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Heading */
+.letter-form-wrapper h2 {
+  text-align: center;
+  font-size: 1.8rem;
+  font-weight: 600;
+  margin-bottom: 24px;
+  color: #333;
+}
+
+/* Form Styling */
+.letter-form-wrapper form p {
+  margin-bottom: 18px;
+}
+
+.letter-form-wrapper form label {
+  display: block;
+  margin-bottom: 6px;
+  font-weight: 500;
+  color: #444;
+}
+
+.letter-form-wrapper input[type="text"],
+.letter-form-wrapper input[type="number"],
+.letter-form-wrapper input[type="date"],
+.letter-form-wrapper select {
+  width: 100%;
+  padding: 10px 12px;
+  font-size: 1rem;
+  border: 1.5px solid #ccc;
+  border-radius: 5px;
+  box-sizing: border-box;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Focus state */
+.letter-form-wrapper input:focus,
+.letter-form-wrapper select:focus {
+  border-color: #007BFF;
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.3);
+  outline: none;
+}
+
+/* Submit Button */
+.letter-form-wrapper button[type="submit"] {
+  width: 100%;
+  padding: 12px;
+  background-color: #007BFF;
+  color: white;
+  font-weight: 600;
+  font-size: 1rem;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.letter-form-wrapper button[type="submit"]:hover {
+  background-color: #0056b3;
+}
+
+/* Responsive Design */
+@media (max-width: 576px) {
+  .letter-form-wrapper {
+    margin: 20px;
+    padding: 20px;
+  }
+
+  .letter-form-wrapper h2 {
+    font-size: 1.5rem;
+  }
+}
